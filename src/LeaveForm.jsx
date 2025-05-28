@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { supabase } from './supabaseClient';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
+
 
 export default function LeaveForm({ user }) {
   const [form, setForm] = useState({
@@ -68,7 +70,30 @@ export default function LeaveForm({ user }) {
         total_entitlement: ''
       });
     }
-  };
+
+    emailjs.send(
+        'service_r9dh2rv',         // Replace with actual Service ID
+        'template_ijyr8xk', // New template ID you just created
+        {
+          name: form.name,
+          email: form.email,
+          department: form.department,
+          start_date: form.start_date,
+          end_date: form.end_date,
+          reason: form.reason
+        },
+        'tUEnM5jWC3FPhXbtw'          // EmailJS public key
+      ).then(
+        (result) => {
+          toast.success('HR notified successfully:', result.text);
+        },
+        (error) => {
+          toast.error('Error sending HR email:', error.text);
+        }
+      );
+
+
+        };
 
   return (
     <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white rounded-md shadow-md space-y-6">

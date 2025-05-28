@@ -60,14 +60,19 @@ const LeaveStatsChart = () => {
   };
 
   return (
-    <div className="bg-white p-4 sm:p-6 rounded shadow mt-4 w-full max-w-lg mx-auto">
-      <h2 className="text-xl font-bold mb-4 text-center">📊 Leave Statistics</h2>
-      {Object.keys(leaveStats.typeCount).length === 0 ? (
-        <p className="text-center text-gray-500">No data available</p>
-      ) : (
-        <Pie data={pieData} />
-      )}
+   <div className="bg-white p-4 sm:p-6 rounded shadow mt-4 w-full max-w-lg mx-auto">
+  <h2 className="text-lg sm:text-xl font-semibold sm:font-bold mb-4 text-center">
+    📊 Leave Statistics
+  </h2>
+  {Object.keys(leaveStats.typeCount).length === 0 ? (
+    <p className="text-center text-gray-500">No data available</p>
+  ) : (
+    <div className="w-full h-64 sm:h-80">
+      <Pie data={pieData} />
     </div>
+  )}
+</div>
+
   );
 };
 
