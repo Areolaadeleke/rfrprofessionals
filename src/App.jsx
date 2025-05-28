@@ -66,8 +66,8 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200  p-6">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-md p-8">
+    <div className="min-h-screen  bg-gradient-to-br from-blue-100 to-blue-200  p-6">
+      <div className="w-full mx-auto bg-white shadow-md rounded-md p-8">
         <header className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">
             Leave Management System
@@ -80,9 +80,26 @@ function App() {
           </button>
         </header>
 
-        <p className="mb-6 text-gray-700">
-          Logged in as: <span className="font-semibold">{role}</span>
-        </p>
+       <div className="mb-6 mx-auto max-w-xs px-4 py-3 bg-blue-50 border border-blue-200 rounded-md flex items-center gap-2 text-blue-800 shadow-sm">
+              <svg
+                className="w-5 h-5 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5.121 17.804A13.937 13.937 0 0112 15c2.192 0 4.243.526 6.121 1.453M15 10a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <p className="text-sm">
+                Logged in as: <span className="font-semibold">{role}</span>
+              </p>
+      </div>
+
 
         {role === 'staff' && (
           <section>
@@ -95,12 +112,15 @@ function App() {
 
         {role === 'hr' && (
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            {/* <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               HR Dashboard
-            </h2>
+            </h2> */}
             <HrDashboard />
           </section>
         )}
+
+
+        
       </div>
       <ToastContainer position='top-right' autoClose={3000} />
     </div>
