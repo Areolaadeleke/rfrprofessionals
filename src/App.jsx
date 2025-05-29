@@ -66,8 +66,8 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <div className="min-h-screen  bg-gradient-to-br from-blue-100 to-blue-200  p-6">
-      <div className="w-full mx-auto bg-white shadow-md rounded-md p-8">
+    <div className="min-h-screen  bg-gradient-to-br from-blue-100 to-blue-200  p-2">
+      <div className="w-full mx-auto bg-white shadow-md rounded-md p-5">
         <header className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">
             Leave Management System
@@ -112,9 +112,6 @@ function App() {
 
         {role === 'hr' && (
           <section>
-            {/* <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              HR Dashboard
-            </h2> */}
             <HrDashboard />
           </section>
         )}
